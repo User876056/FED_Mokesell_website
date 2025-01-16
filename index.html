@@ -6,13 +6,73 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <style>
+
+            header{
+                display: flex;
+                direction: row;
+                background-color: aqua;
+            }
+            #logo{
+                margin: 5px;
+            }
+
+            #search-box{
+                
+                width: 700px;
+                margin: 40px auto ;
+                background-color: white;
+                border-radius: 30px;
+               
+                
+            }
+            #row{
+                display: flex;
+                align-items: center;
+                padding: 0px 20px;
+            }
+            #input-box{
+                flex: 1;
+                height:50px;
+                font-size: larger;
+                border: none;
+                outline: none;
+                
+                
+            }
+            #row button{
+                background: transparent;
+                border: 0;
+                outline: 0;
+            }
+            .bx-search{
+                width: 25px;
+                font-size: 30px;
+                cursor: pointer;
+            }
+        </style>
     </head>
     <body>
         <header>
             <a href="index.html" id="logo">
+                <h1>logo</h1>
+            </a>
+
+            <div id="search-box">
+                <div id="row">
+                    <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
+                    <button><i class='bx bx-search'></i></button>
+                </div>
+            </div>
+
+            <a href="" id="">
                 <img src="" alt="">
             </a>
+
 
 
         </header>
