@@ -15,26 +15,32 @@
             header{
                 display: flex;
                 direction: row;
-                background-color: aqua;
+               
+                
             }
-            #logo{
-                margin: 5px;
+            #logo img{
+                width: 200px;
+                height: auto;
+                margin: 10%;
+                background:transparent;
+                
             }
 
             #search-box{
                 
                 width: 800px;
-                margin: 40px auto ;
-                background-color: white;
-                border-radius: 10px;
+                margin: 40px auto;
                 
+                background-color: rgb(255, 255, 255);
+                border-radius: 10px;
+                border: 1px solid rgb(155, 155, 155);
                 
                 
             }
             #row{
                 display: flex;
                 align-items: center;
-                padding: 0px 5px;
+                padding: 0px 4px;
                 
                 
             }
@@ -43,26 +49,58 @@
                 height:50px;
                 border: none;
                 outline: none;
-                margin: 0  3%;
+                margin: 0  2%;
                 
             }
+            #row:focus-within {
+                box-shadow: 0 0 10px rgba(0, 123, 255, 0.7); /* Blue glow effect around the entire search bar */
+                border-radius: 10px; /* Rounded corners for the effect */
+                transition: box-shadow 0.3s ease; /* Smooth transition */
+            }
+            
             #row button{
                 padding: 1% 4%;
                 border: 0;
                 outline: 0;
                 border-radius: 10px;
                 cursor: pointer;
+                margin-top: 5px;
             }
+            #row button:hover{
+                transition: 0.2s;
+                background-color: rgb(199, 199, 199);
+            }
+           
             .bx-search{
                 width: 25px;
                 font-size: 30px;
+            }
+            
+            .button{
+                font-size: 5rem;
+                color: black;
+                margin-top: 1.5%;
+            }
+            .slider{
+                position: relative;
+                width: 80%;
+                margin: auto;
+                overflow:hidden;
+            }
+            .slider img{
+                width: 80%;
+                display: none;
+            }
+            img.displaySlide{
+                display: block;
+
             }
         </style>
     </head>
     <body>
         <header>
             <a href="index.html" id="logo">
-                <h1>logo</h1>
+                <img src="Images/logo.jpg" alt="">
             </a>
 
             <div id="search-box">
@@ -72,21 +110,78 @@
                 </div>
             </div>
 
-            <a href="" id="">
-                <img src="" alt="">
+            <a href="" id="" class="button" >
+                <i class='bx bx-cart' ></i>
             </a>
 
+            <a href="" id="" class="button">
+                <i class='bx bx-user-circle'></i>
+            </a>
+            
 
 
         </header>
         <main>
+            <hr>
 
+            
+            
+            <div class="slider">
+                <div class="slides">
+                    <img class="slide" src="Images/slide-1.jpg" alt="" >
+                    <img class="slide" src="Images/slide-3.jpg" alt="">
+                    <img class="slide" src="Images/slide-2.jpg" alt="">
+                    
+                </div>
+                <button class="prev" onclick="prevSlide()">&#10094</button>
+                <button class="next" onclick="nextSlide()">&#10095</button> 
+                
+            </div>
             
 
         </main>
-        <footer>
+        <script>
+            const slides = document.querySelectorAll(".slides img");
+            let slideIndex =0;
+            let intervalId = null;
 
+            document.addEventListener("DOMContentLoaded",initializeSlider)
 
-        </footer>
+            function initializeSlider(){
+                if(slides.length > 0){
+                    slides[slideIndex].classList.add("displaySlide")
+                    intervalId = setInterval(nextSlide,5000)
+                }
+
+                
+                
+            }
+            function showSlide(index){
+
+                if(index  >= slides.length){
+                    slideIndex=0;
+
+                }
+                else if(index < 0){
+                    slideIndex = slides.length -1;
+
+                }
+                slides.forEach(slide => {
+                    slide.classList.remove("displaySlide")
+                });
+                slides[slideIndex].classList.add("displaySlide")
+            }
+
+            function prevSlide(){
+                slideIndex--;
+                showSlide(slideIndex);
+            }
+            function nextSlide(){
+                slideIndex++;
+                showSlide(slideIndex)
+            }
+
+        </script>
+
     </body>
 </html>
