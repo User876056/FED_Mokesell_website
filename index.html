@@ -18,6 +18,13 @@
                
                 
             }
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                flex-direction: column;
+                align-items: center;
+            }
             #logo img{
                 width: 200px;
                 height: auto;
@@ -108,7 +115,7 @@
                 transform: translateY(-50%);
                 font-size: 2rem;
                 padding: 10px 15px;
-                background-color: rgba(168, 168, 168, 0.386);
+                background-color: rgba(255, 255, 255, 0.605);
                 border-radius: 100px;
                 color: rgb(0, 0, 0);
                 border: none;
@@ -126,6 +133,55 @@
             @keyframes fade {
                 from{opacity: 0.5;}
                 to {opacity: 1;}
+            }
+            #categories-container {
+                display: flex;
+                
+                flex-direction: row; /* Allows vertical alignment of items */
+                align-items: center; /* Centers content horizontally */
+                justify-content: center; /* Centers content vertically */
+                width: 80%;
+                margin: auto;
+                gap: 28px;
+            }
+
+            .category {
+                width: 130px;
+                height: 130px;
+                background-color: #e6e6e6;
+
+                border-radius: 15px;
+                text-align: center;
+                padding: 20px;
+                text-decoration: none;
+                color: black;
+                
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+
+            .category:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .category img {
+                width: 80px;
+                height: 80px;
+               
+            }
+            .category p{
+                
+            }
+
+            .see-all {
+                margin-top: 20px;
+                text-decoration: none;
+                color: #007bff;
+                font-weight: bold;
+            }
+
+            .see-all:hover {
+                text-decoration: underline;
             }
         </style>
     </head>
@@ -151,8 +207,9 @@
             </a>
             
         </header>
+
+        <hr>
         <main>
-            <hr>
             <div class="slider">
                 <div class="slides">
                     <img class="slide" src="Images/slide-1.jpg" alt="" >
@@ -165,8 +222,38 @@
                 
             </div>
 
-            <section>
-                <h1></h1>
+            <h2 style="margin-left: 170px; margin-top: 50px;">What would you like to find?</h2>
+            <section id="categories-container">
+                
+                    <a href="Home_tool.html" class="category">
+                      <img src="Images/tool-box.png" alt="tool-box Icon">
+                      <p>Home Tools</p>
+                    </a>
+                    <a href="cars.html" class="category">
+                      <img src="Images/car.png" alt="Cars Icon">
+                      <p>Cars</p>
+                    </a>
+                    <a href="home-services.html" class="category">
+                      <img src="Images/toys.png" alt="Home Services Icon">
+                      <p>Home Services</p>
+                    </a>
+                    <a href="gadgets.html" class="category">
+                      <img src="Images/responsive.png" alt="Mobile Phones & Gadgets Icon">
+                      <p>Mobile Phones & Gadgets</p>
+                    </a>
+                    <a href="womens-fashion.html" class="category">
+                      <img src="Images/dress.png" alt="Women's Fashion Icon">
+                      <p>Women's Fashion</p>
+                    </a>
+                    <a href="mens-fashion.html" class="category">
+                      <img src="Images/suit.png" alt="Men's Fashion Icon">
+                      <p>Men's Fashion</p>
+                    </a>
+                    <a href="luxury.html" class="category">
+                      <img src="Images/bicycle.png" alt="Luxury Icon">
+                      <p>Bicycles</p>
+                    </a>
+                  </div>
                
 
 
