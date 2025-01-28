@@ -193,8 +193,8 @@
         <script>
             // Fetch data from API
             async function fetchProducts() {
-                const API_URL = 'https://mokesellproducts-3f4b.restdb.io/rest/products'; // Your API URL
-                const API_KEY = '67965648ed070e2a073bbb9c'; // Replace with your actual API key
+                const API_URL = 'https://mokesellproducts-3f4b.restdb.io/rest/products'; 
+                const API_KEY = '67965648ed070e2a073bbb9c';
 
                 try {
                     const response = await fetch(API_URL, {
@@ -225,7 +225,7 @@
                     const card = document.createElement('div');
                     card.className = `product-card filterDiv ${Product.name}`;  // Ensure correct casing here
                     card.innerHTML = `
-                        <img src="${Product.image || 'placeholder.jpg'}" alt="${Product.name}" />
+                        <img src="Images/${Product.image || 'placeholder.jpg'}" alt="${Product.name}" />
                         <div class="product-info">
                             <h3>${Product.name}</h3>
                             <p class="price">Price: $${Product.price_sg}</p>
