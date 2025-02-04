@@ -74,85 +74,146 @@
                 margin-top: 1.5%;
             }
             
-            .filter-buttons {
-             display: flex;
-             flex-direction: column; /* Align buttons vertically */
-             gap: 10px; /* Add spacing between buttons */
-             position: fixed; /* Keep the filter in place on scroll */
-             left: 45px;
-             position: fixed;
-             top: 130px; /* Adjust top padding if necessary */
-             background-color: #f5f5f5; /* Add background color to differentiate */
-             padding: 20px; /* Add padding for spacing */
-             height: 100vh; /* Make it span the full height of the viewport */
-             z-index: 10; /* Ensure it appears above the main content */
-            }
-
-            .filter-buttons button {
-                padding: 10px 15px;
-                margin: 0 5px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                border-color: black;
-                color: black;
-            }
-
-            .filter-buttons button.active {
-                background-color: rgb(158, 158, 158);
-            }
-
-            #products-container {
-                margin-left: 200px;
-                padding: 20px;
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                gap: 20px;
-            }
-            
-            .product-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 200px;
-    text-align: center;
+            /* Updated Product Cards */
+#products-container {
+    margin-left: 200px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
 }
 
-.product-card .picture-placeholder {
-    flex-grow: 1;
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e0e0e0;
-    font-size: 18px;
-    color: #555;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
 }
 
 .product-info {
+    padding: 15px;
+    background: white;
+}
+
+.product-name {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.product-sold
+
+/* Improved Filter Buttons */
+.filter-buttons {
+    position: fixed;
+    left: 20px;
+    top: 130px;
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+    z-index: 10;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align content to the left */
-    bottom: 10px; /* Move it closer to the bottom */
-    left: 10px; /* Move it closer to the left */
-    padding: 3px;
-    background-color: #e0e0e0;
+    gap: 12px;
 }
 
-.product-info div {
-    margin: 0;
+.filter-buttons button {
+    padding: 10px 20px;
+    border: 1px solid #e0e0e0;
+    background: #f8f9fa;
+    color: #444;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    text-align: left;
 }
 
-.product-info .price {
-    font-weight: bold;
-    font-size: 18px; /* Increased font size for price */
-    margin: 0;
-    color: #333;
+.filter-buttons button:hover {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+    transform: translateX(5px);
 }
 
-.product-info .name {
-    font-size: 5px; /* Smaller font size for name */
-    color: #666;
-    margin: 0;
+.filter-buttons button.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #products-container {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+        gap: 15px;
+    }
+
+    .filter-buttons {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 20px;
+        justify-content: center;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .product-image {
+        height: 150px;
+    }
+
+    .product-name {
+        font-size: 14px;
+    }
+
+    .product-price {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    #products-container {
+        grid-template-columns: 1fr;
+    }
 }
 
         </style>
@@ -225,10 +286,11 @@
                     const card = document.createElement('div');
                     card.className = `product-card filterDiv ${Product.name}`;  // Ensure correct casing here
                     card.innerHTML = `
-                        <img src="Images/${Product.image || 'placeholder.jpg'}" alt="${Product.name}" />
+                        <img src="Product_Images/${Product.image_name || 'placeholder.jpg'}" alt="${Product.name}" />
                         <div class="product-info">
                             <h3>${Product.name}</h3>
                             <p class="price">Price: $${Product.price_sg}</p>
+                            <p class="review/s">Price: $${Product.price_sg}</p>
                         </div>
                     `;
                     container.appendChild(card);
