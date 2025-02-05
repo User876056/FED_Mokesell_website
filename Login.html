@@ -16,10 +16,10 @@
 
     <style>
         * {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
@@ -28,7 +28,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            flex-direction: column;
+             min-height: 90vh;
+        }
+       
+        #logo img{
+            width:50%;
+            margin: auto;
+            margin-bottom: 20px;
         }
 
         a {
@@ -51,14 +58,6 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
             text-align: center;
-        }
-
-        .login-header span {
-            font-size: 28px;
-            font-weight: bold;
-            color: #6a1b9a;
-            margin-bottom: 20px;
-            display: block;
         }
 
         /* Input Boxes */
@@ -184,18 +183,18 @@
     </style>
 </head>
 <body>
-    <header>
-
-
-
-    </header>
-    <hr>
+   
+    
+   
+    
+    
     <main>
         <section class="wrapper">
-            <div class="login-box">
-                <div class="login-header">
-                    <span>Login</span>
-                </div>
+           
+            <div id="logo">
+                <a href="index.html" >
+                    <img src="Images/logo.jpeg" alt="">
+                </a>
             </div>
             <form id="registerForm">
                 <div class="input-box">
@@ -206,10 +205,7 @@
                     <input type="password" name="password" id="password" class="input-field" placeholder="Password" required>
                     
                 </div>
-                <div class="input-box">
-                    <input type="email" name="email" id="email" class="input-field" placeholder="Email" required>
-              
-                </div>
+                
                 <p id="response"></p>
                 <div class="remember-forgot">
                     <div class="remember-me">
@@ -221,10 +217,11 @@
                     </div>
                 </div>
                 <div class="input-box">
-                    <button type="submit">Register</button>
+                    <button type="submit">Login</button>
                 </div>
+                <p id="error-message" class="error-message"></p>
                 <div class="register">
-                    <span>Don't have an account? <a href="SignUp.html">Register</a></span>
+                    <span>Don't have an account? <a href="SignUp.html">Sign Up</a></span>
                 </div>
                 <br>
                 <hr>
@@ -241,45 +238,46 @@
     <footer></footer>
     
     <script>
-        const apiKey = "6796461ab7d46ae0e4052d24"; // Replace with your API key
-        const databaseUrl = "https://useraccounts-437f.restdb.io/rest/website-users"; // Replace with your database URL
-    
-        // Add event listener to the form
+        const apiKey = "6796461ab7d46ae0e4052d24";  
+        const databaseUrl = "https://useraccounts-437f.restdb.io/rest/website-users"; 
+
         document.getElementById("registerForm").addEventListener("submit", async (e) => {
             e.preventDefault();
-    
+
             const username = document.getElementById("username").value;
-            const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
-    
-            const data = {
-                username: username,
-                email: email,
-                password: password, // Avoid storing plain-text passwords; use hashing on the server.
-            };
-    
+            const errorMessage = document.getElementById("error-message");
+
             try {
                 const response = await fetch(databaseUrl, {
-                    method: "POST",
+                    method: "GET",
                     headers: {
                         "Content-Type": "application/json",
                         "x-apikey": apiKey,
                         "cache-control": "no-cache",
-                    },
-                    body: JSON.stringify(data),
+                    }
                 });
-    
+
                 if (response.ok) {
-                    const result = await response.json();
-                    document.getElementById("response").textContent = "Registration successful!";
-                    console.log(result); // For debugging
+                    const users = await response.json();
+                    const user = users.find(user => user.username === username && user.password === password);
+
+                    if (user) {
+                        errorMessage.textContent = "Login successful! Redirecting...";
+                        errorMessage.style.color = "green";
+
+                        setTimeout(() => {
+                            window.location.href = "index.html"; // Redirect to home page
+                        }, 2000);
+                    } else {
+                        errorMessage.textContent = "Invalid username or password!";
+                    }
                 } else {
-                    const errorMessage = await response.text();
-                    document.getElementById("response").textContent = `Error: ${errorMessage}`;
+                    errorMessage.textContent = "Login failed. Please try again.";
                 }
             } catch (error) {
                 console.error(error);
-                document.getElementById("response").textContent = "An error occurred while registering.";
+                errorMessage.textContent = "An error occurred. Please try again.";
             }
         });
     </script>
