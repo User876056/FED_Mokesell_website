@@ -274,22 +274,21 @@
             }
         });
     
-        // **Submit Form**
         document.getElementById("registerForm").addEventListener("submit", async (e) => {
             e.preventDefault();
             responseMessage.textContent = "";
-    
+
             const username = usernameInput.value.trim();
             const email = emailInput.value.trim();
             const password = passwordInput.value;
-    
-            if (usernameError.textContent || emailError.textContent || passwordError.textContent) {
+
+            if (responseMessage.textContent) {
                 responseMessage.textContent = "Please fix the errors before submitting.";
                 return;
             }
-    
+
             const data = { username, email, password };
-    
+
             try {
                 const response = await fetch(databaseUrl, {
                     method: "POST",
@@ -300,23 +299,29 @@
                     },
                     body: JSON.stringify(data),
                 });
-    
+
                 if (response.ok) {
-                    responseMessage.textContent = "Registration successful! Redirecting...";
+                   
                     document.getElementById("registerForm").reset();
 
-                    // Redirect to the home page after 2 seconds
-                    setTimeout(() => {
-                        window.location.href = "index.html"; // Change "index.html" to your homepage file
-                    }, 1000);
+                    // Store user login state in localStorage
+                    localStorage.setItem("isLoggedIn", "true");
+                    localStorage.setItem("Username", username)
+                    localStorage.setItem("userEmail", email); // Store user info if needed
+                    
+                    window.location.href = "index.html"; // Change to your homepage
+                    
                 } else {
                     responseMessage.textContent = "Registration failed. Try again.";
                 }
-            } catch (error) {
+            } 
+            catch (error) 
+            {
                 console.error(error);
                 responseMessage.textContent = "An error occurred while registering.";
             }
         });
+
     </script>
     
 </body>

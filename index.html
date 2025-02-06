@@ -8,13 +8,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="style.css">
-        <script type="module" src="./Appwrite.js"></script>
+        <script src="CheckLogin.js"></script>
 
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <style>
 
-            
+
 
 
 
@@ -24,7 +24,7 @@
                 width: 80%;
                 margin: auto;
                 overflow:hidden;
-                
+
             }
             .slider img{
                 width: 100%;
@@ -40,7 +40,7 @@
 
             }
             .slider button{
-                
+
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
@@ -51,12 +51,12 @@
                 color: rgb(0, 0, 0);
                 border: none;
                 cursor: pointer;
-                
+
             }
-            
+
             .prev{
                 left: 0;
-                
+
             }
             .next{
                 right: 0;
@@ -82,7 +82,7 @@
                 padding: 20px;
                 text-decoration: none;
                 color: black;
-                
+
                 transition: transform 0.2s, box-shadow 0.2s;
             }
 
@@ -94,10 +94,10 @@
             .category img {
                 width: 80px;
                 height: 80px;
-               
+
             }
             .category p{
-                
+
             }
 
             .see-all {
@@ -122,9 +122,9 @@
             .product-card {
                 width: calc(100%/5);
                 height: 400px;
-                
-                
-                
+
+
+
                 text-decoration: none;
                 color: #000;
                 overflow:visible;
@@ -136,23 +136,23 @@
 
                 box-shadow:0 10px 20px rgba(0, 0, 0, 0.2);
                 border-radius: 8px;
-                
+
             }
 
             .product-card img {
-                
+
                 width: 95%;
                 height: 250px;
                 margin: 2.5%;
                 border-radius: 8px;
-                
-                
+
+
             }
 
             .product-info {
                 padding: 15px;
                 padding-top:0%;
-               
+
             }
 
             .product-info h3 {
@@ -174,13 +174,13 @@
                 color: #999;
             }
             #Banner{
-                
+
                 display: flex;
-                width: 80%; 
+                width: 80%;
                 margin: auto;
                 object-fit: fill;
                 border-radius: 8px;
-                
+
             }
 
         </style>
@@ -196,19 +196,19 @@
             <section id="header-icons">
               <div id="header-category">
                   <a href="Home_tool.html" class="head-category">
-                    
+
                     <p >Home Tools</p>
                   </a>
                   <a href="cars.html" class="head-category">
-                    
+
                     <p>Cars</p>
                   </a>
                   <a href="home-services.html" class="head-category">
-                    
+
                     <p>Toys</p>
                   </a>
                   <a href="gadgets.html" class="head-category">
-                    
+
                     <p>Mobile Phones & Gadgets</p>
                   </a>
                   <a href="womens-fashion.html" class="head-category">
@@ -217,7 +217,7 @@
                   <a href="mens-fashion.html" class="head-category" >
                     <p>Men's Fashion</p>
                   </a>
-                
+
                   <a href="luxury.html" class="head-category">
                     <p>Bicycles</p>
                   </a>
@@ -229,29 +229,40 @@
                   <a href="Login.html" class="register-button">
                     <p>Login</p>
                   </a>
-                  <!-- <a href="" id="" class="button" >
-                    <i class='bx bx-cart' ></i>
-                  </a>
-      
-                  <a href="" id="" class="button">
-                    <i class='bx bx-heart'></i>
-                  </a> -->
-              </div>
-
-              <div id="search-box">
-                <i class='bx bx-search'></i>
-                
-                <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
+                  <div id="accountContainer" style="display: none;">
+                    <button id="accountBtn" class="account-button">
+                      <div id="avatar"></div>
+                      <span id="usernameDisplay"></span>
+                    </button>
+                  </div>
                   
+
               </div>
-              
+              <div id="second-row">
+                <div id="search-box">
+                  <i class='bx bx-search'></i>
+
+                  <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
+
+                </div>
+
+                <div id="function-buttons" style="display: none;" >
+                  <a href="wishlist.html" aria-label="Wishlist">
+                      <i class='bx bx-heart'></i>
+                  </a>
+          
+                  <a href="cart.html" aria-label="Cart">
+                      <i class='bx bx-cart-alt'></i>
+                  </a>
+
+                  
+                </div>
+              </div>
             </section>
-            
 
             
 
-            
-            
+
         </header>
 
         <main>
@@ -263,13 +274,13 @@
                     <img class="slide" src="Images/slide-4.jpg" alt="">
                 </div>
                 <button class="prev" onclick="prevSlide()">&#10094</button>
-                <button class="next" onclick="nextSlide()">&#10095</button> 
-                
+                <button class="next" onclick="nextSlide()">&#10095</button>
+
             </div>
 
             <h2 style="margin-left: 170px; margin-top: 50px;">What would you like to find?</h2>
             <section id="categories-container">
-                
+
                     <a href="Home_tool.html" class="category">
                       <img src="Images/tool-box.png" alt="tool-box Icon">
                       <p>Home Tools</p>
@@ -299,7 +310,7 @@
                       <p>Bicycles</p>
                     </a>
                   </div>
-               
+
             </section>
 
             <h2 style="margin-left: 175px; margin-top: 50px;">Trending Now</h2>
@@ -313,7 +324,7 @@
                     <p>状况良好</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 2 -->
                 <a href="product2.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Decathlon adult foldable bike used">
@@ -323,7 +334,7 @@
                     <p>几乎全新</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 3 -->
                 <a href="product3.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Bicycle">
@@ -333,7 +344,7 @@
                     <p>状况良好</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 4 -->
                 <a href="product4.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Pashley Made in England bicycle for ladies">
@@ -343,7 +354,7 @@
                     <p>几乎全新</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 5 -->
                 <a href="product5.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Kids Bicycle, Btwin 16'">
@@ -368,7 +379,7 @@
                     <p>状况良好</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 2 -->
                 <a href="product2.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Decathlon adult foldable bike used">
@@ -378,7 +389,7 @@
                     <p>几乎全新</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 3 -->
                 <a href="product3.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Bicycle">
@@ -388,7 +399,7 @@
                     <p>状况良好</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 4 -->
                 <a href="product4.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Pashley Made in England bicycle for ladies">
@@ -398,7 +409,7 @@
                     <p>几乎全新</p>
                   </div>
                 </a>
-            
+
                 <!-- Product Card 5 -->
                 <a href="product5.html" class="product-card">
                   <img src="Images/phone.jpg" alt="Kids Bicycle, Btwin 16'">
@@ -411,10 +422,10 @@
               </div>
         </main>
 
-        
-      
+
+
       <script>
-          
+
 
 
 
@@ -457,7 +468,7 @@
                 showSlide(slideIndex)
             }
 
-            
+
         </script>
 
     </body>

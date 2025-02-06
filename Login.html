@@ -220,7 +220,7 @@
                 <div class="input-box">
                     <button type="submit" >Login</button>
                 </div>
-                <p id="error-message" class="error-message"></p>
+                <p id="response"></p>
                 <div class="register">
                     <span>Don't have an account? <a href="SignUp.html">Sign Up</a></span>
                 </div>
@@ -241,13 +241,7 @@
     <footer></footer>
     
     <script>
-
-
-
-
-
-
-        const apiKey = "6796461ab7d46ae0e4052d24";  
+        const apiKey = "6796461ab7d46ae0e4052d24"; 
         const databaseUrl = "https://useraccounts-437f.restdb.io/rest/website-users"; 
 
         document.getElementById("registerForm").addEventListener("submit", async (e) => {
@@ -255,7 +249,7 @@
 
             const username = document.getElementById("username").value;
             const password = document.getElementById("password").value;
-            const errorMessage = document.getElementById("error-message");
+            const responseMessage = document.getElementById("response");
 
             try {
                 const response = await fetch(databaseUrl, {
@@ -272,21 +266,24 @@
                     const user = users.find(user => user.username === username && user.password === password);
 
                     if (user) {
-                        errorMessage.textContent = "Login successful! Redirecting...";
-                        errorMessage.style.color = "green";
+                        localStorage.setItem("isLoggedIn", "true");
+                        localStorage.setItem("Username", username)
+                        
 
-                        setTimeout(() => {
-                            window.location.href = "index.html"; // Redirect to home page
-                        }, 2000);
-                    } else {
-                        errorMessage.textContent = "Invalid username or password!";
+                        window.location.href = "index.html"; // Redirect to home page
+                    } 
+                    else 
+                    {
+                        responseMessage.textContent = "Invalid username or password!";
                     }
-                } else {
-                    errorMessage.textContent = "Login failed. Please try again.";
+                } 
+                else
+                {
+                    responseMessage.textContent = "Login failed. Please try again.";
                 }
             } catch (error) {
                 console.error(error);
-                errorMessage.textContent = "An error occurred. Please try again.";
+                responseMessage.textContent = "An error occurred. Please try again.";
             }
         });
     </script>
