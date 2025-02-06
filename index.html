@@ -8,6 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="style.css">
+        <script type="module" src="./Appwrite.js"></script>
+
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <style>
@@ -242,6 +244,7 @@
                 <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
                   
               </div>
+              
             </section>
             
 
@@ -407,18 +410,26 @@
                 </a>
               </div>
         </main>
-        <script>
-            const slides = document.querySelectorAll(".slides img");
-            let slideIndex =0;
-            let intervalId = null;
 
-            document.addEventListener("DOMContentLoaded",initializeSlider)
+        
+      
+      <script>
+          
 
-            function initializeSlider(){
-                if(slides.length > 0){
-                    slides[slideIndex].classList.add("displaySlide")
-                    intervalId = setInterval(nextSlide,5000)
-                }
+
+
+
+          const slides = document.querySelectorAll(".slides img");
+          let slideIndex =0;
+          let intervalId = null;
+
+          document.addEventListener("DOMContentLoaded",initializeSlider)
+
+          function initializeSlider(){
+              if(slides.length > 0){
+                  slides[slideIndex].classList.add("displaySlide")
+                  intervalId = setInterval(nextSlide,5000)
+              }
             }
             function showSlide(index){
 
