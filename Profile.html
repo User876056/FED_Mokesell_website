@@ -18,8 +18,79 @@
 
 
         <style>
+          
+            #account-content{
+                display: flex;
+                flex-direction: column;
+                width: 70%;
+                margin: auto;
+                gap: 20px;
+            }
+            #account {
+                width:80px;
+                height: 80px;
+                background-color: #380909; /* Blue */
+                color: white;
+                font-size: 40px;
+                font-weight: bold;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                text-transform: uppercase;
+                margin-left: 10%;
+                margin-right: 15px;
+            }
+           
 
-
+            #head{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                border-radius: 10px;
+                height: 200px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+               
+                
+            }
+            #head .username{
+                font-size: 30px;
+            }
+            #account-info{
+                height: 450px;
+               
+                border-radius: 10px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            }
+            .info{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-top: 1.5%;
+                margin-left: 10.5%;
+                
+            }
+            .info div{
+                font-size: 18px;
+            }
+            .attributes{
+                margin-right: 15px;
+               font-weight: bold;
+               font-size: 19px;
+            }
+            #logoutBtn{
+                font-size: 2rem;
+                padding: 1.2%;
+                border-radius: 10px;
+                color: white;
+                background-color:#940385 ;
+                border: none;
+                cursor: pointer;
+            }
+            #logoutBtn:hover{
+                transform: scale(1.1);
+                transition: transform 0.3s ease;
+            }
         </style>
     </head>
     <body>
@@ -103,13 +174,92 @@
 
         </header>
         <main>
-             
+            <section id="account-content">
+
+                
+                
+                <div id="head">
+                    <div id="account"></div>
+                    <div class="username" style="margin-right: 650px;"></div>
+                    <button id="logoutBtn">Logout</button>
+                </div>
+                    
+               
             
+                <section id="account-info">
+
+                    <div class="info"> 
+                        <p class="attributes">Username: </p>
+                        <div class="username"></div>
+
+                    </div>
+                    <div class="info">
+                        <p class="attributes">Password: </p>
+                        <div id="show-password"></div>
+                        
+
+                    </div>
+                    <div class="info">
+                        <p class="attributes">Email: </p>
+                        <div id="show-email"></div>
+
+                    </div>
+                    <div class="info">
+                        <p class="attributes">Contact Number: </p>
+                        <div id="show-contactNo"></div>
+
+                    </div >
+                    
+                    <div class="info">
+                        <p class="attributes">Address: </p>
+                        <div id="show-address"></div>
+
+                    </div>
+
+
+                </section>
+
+                
+            </section>
             
 
-            <button id="logoutBtn">Logout</button>
+
+           
+
+            
 
         </main>
         
+        <script>
+            const username = localStorage.getItem("Username");
+            const userPassword = localStorage.getItem("userPassword")
+            const useremail = localStorage.getItem("userEmail");
+            const userContactNo = localStorage.getItem("userContactNo");
+            const useraddress = localStorage.getItem("userAddress");
+
+            document.getElementById("account").textContent = username.charAt(0);
+            const namedisplay = document.querySelectorAll(".username");
+
+            namedisplay.forEach(element => {
+                element.textContent = username;
+            });
+
+            document.getElementById('show-password').textContent = userPassword;
+            document.getElementById('show-email').textContent = useremail
+            
+            if(userContactNo == 'undefined'){
+                document.getElementById('show-contactNo').textContent = 'None';
+            }
+            else{
+                document.getElementById('show-contactNo').textContent = userContactNo;
+            }
+
+            if(userContactNo == 'undefined'){
+                document.getElementById('show-address').textContent = 'None';
+            }
+            else{
+                document.getElementById('show-address').textContent = useraddress;
+            }
+        </script>
     </body>
 </html>

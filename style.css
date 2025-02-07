@@ -67,7 +67,7 @@ header{
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 #search-box:focus-within {
-    border-color:#940385;;
+    border-color:#940385;
     box-shadow: 0 0 10px #940385;;
 }
 #input-box{
@@ -154,4 +154,8 @@ header{
     align-items: center;
     border-radius: 50%;
     text-transform: uppercase;
+}
+#usernameDisplay{
+    font-size: 1.1rem;
+    font-weight: bold;
 }

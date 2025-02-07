@@ -267,8 +267,12 @@
 
                     if (user) {
                         localStorage.setItem("isLoggedIn", "true");
-                        localStorage.setItem("Username", username)
-                        
+                        localStorage.setItem("Username", username);
+                        localStorage.setItem("userPassword",password);
+                        localStorage.setItem("userEmail", user.email); // Store user info if needed
+                        localStorage.setItem("userContactNo",user.contactNO);
+                        localStorage.setItem("userCAddress",user.address);
+                            
 
                         window.location.href = "index.html"; // Redirect to home page
                     } 
