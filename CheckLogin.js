@@ -26,11 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.href = "Profile.html";
         });
 
-        document.getElementById("logoutBtn").addEventListener("click", () => {
-
-            localStorage.clear();
-            window.location.href = "index.html";
-        });
+        
     }
 });
 
