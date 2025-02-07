@@ -19,21 +19,23 @@
             main{
                 width: 80%;
                 margin: auto;
-                background-color: aqua;
+                background-color: rgba(231, 231, 231, 0.566);
                 margin-top: 50px;
                 display: flex;
                 flex-direction: row;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             }
             #product-image img{
-                width: 600px;
-                height:600px;
+                width: 550px;
+                height:550px;
                 border-radius: 10px;
-                
+                margin: 3%;
             }
             #informations{
                 display: flex;
                 flex-direction: column;
-                margin-left: 4%;
+               
+                margin-left: 6%;
                 
             }
             #sales{
@@ -45,9 +47,115 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-right:10%;
+                margin-right:18%;
             }
+            .info p{
+                
+                font-size: 1.2rem;
+                margin-right: 8%;
+            }
+            .info div{
+                font-size: larger;
+            }
+            #price{
+                margin-top: 1%;
+                font-size: 3.5rem;  
+                font-weight: bold;
+            }
+            .Guarantee{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-top: 2%;
+            }
+            .Guarantee div{
+                width: 10%;
+                color:rgb(83, 83, 83);
+                margin-right: 5% ;
+                
+            }
+            .Guarantee img{
+                width: 5%;
+                margin-right: 10px;
+            }
+            #description-box{
+                width: 65%;
+                height:80px;
+                background-color: rgb(255, 255, 255);
+                padding: 2%;
+            }
+            #quantity{
+                display: flex;
+                flex-direction: row;
+                margin-top: 4%;
+                align-items: center;
+            }
+            #quantity button{
+                height: 40px;
+                width: 40px;
+                font-size: 2rem;
+                cursor: pointer;
+            }
+            #quantity div{
+                margin-right: 7%;
+            }
+            #quantity p{
 
+                width: 65px;
+                height: 38px;
+                display: flex;
+                justify-content:center ;
+                align-items: center;
+                border: 1px solid black;
+                font-size: 1.3rem;
+                color: #940385;
+                font-weight: 550;
+            }
+            #buying{
+                margin-top: 5%;
+                display: flex;
+                flex-direction: row;
+               
+            }
+            #buying button{
+                width: 200px;
+                height: 60px;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+            #ToCart{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                background-color: #ff00ea38;
+                border: 1px solid #940385;;
+            }
+            #ToCart i{
+                font-size: 1.8rem;
+                margin-right: 10px;
+                margin-left: 20px;
+            }
+            #ToCart:hover{
+                background-color: #ff00ea1a;
+            } 
+            #buynow{
+                background-color: #b802a5;
+                color: white;
+                border: none;
+            }
+            #buynow:hover{
+                background-color: #e301cd;
+            
+            }
+            #like{
+                border: none;
+                margin-top: 10px;
+                background-color: transparent;
+                font-size: 2.8rem;
+                cursor: pointer;
+                
+            }
+            
         </style>
     </head>
     <body>
@@ -133,8 +241,6 @@
 
         
         </header>
-
-
         <main>
             <div id="product-image">
 
@@ -143,48 +249,125 @@
 
 
             <section id="informations" >
-                <h2 id="product-name">useless phone</h2>
+                <h2 id="product-name" style="font-size:1.8rem;">useless phone </h2>
 
                 
 
                 <section id="sales">
                     <div class="info"> 
-                        <p>Username: </p>
+                        <p>Rating: </p>
                         <div >wee</div>
 
                     </div>
                     <div class="info">
-                        <p>Password: </p>
+                        <p>Review: </p>
                         <div >efwf</div>
                         
 
                     </div>
                     <div class="info">
-                        <p >Email: </p>
+                        <p >Sold: </p>
                         <div >wefw</div>
 
                     </div>
                 </section>
 
-                <div>
+                
+                <div id="price">$25</div>
 
+                <div class="Guarantee">
+                    <div>Shipping</div>
+                    <img src="Images/Delivery.png" alt="" style="margin-right: 10px;">
+                    <p>Guaranteed to get in 8 days, with shipping fee $0.00 - $1.99</p>
                 </div>
+                
 
-                <div>
-
+                <div class="Guarantee">
+                    <div>Shopping Guarantee</div>
+                    <img src="Images/Guarantee.png" alt="" style="margin-right: 10px;">
+                    <p>15-Day Free Returns</p>
                 </div>
+<!-- 
+                <div class="Guarantee">
+                    <div style="margin-bottom: 75px;">Description</div>
+                    
+                    <p id="description-box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, 
+                        tenetur! Aliquam in numquam ducimus! 
+                      ulla consequuntur, cum maxime? Ipsam, 
+                        consequuntur reiciendis.</p>
+                    
+                    
+                </div> -->
 
-                <section>
-
+                <section id="quantity">
+                    <div>Quantity</div>
+                    <button id="minus" >-</button>
+                    <p id="quantityNo">1</p>
+                    <button id="add">+</button>
 
                 </section>
+
+                <div id="buying">
+                    <button id="ToCart">
+                        <i class='bx bx-cart-add' ></i>
+                        <p>Add To Cart</p>
+                    </button>
+
+                    <button id="buynow">
+                        <p>Buy Now</p>
+                    </button>
+                    <div id="like">
+                        <i class='bx bx-heart' ></i>
+                        <i class='bx bxs-heart' style='color:#fe2020; display: none; '  ></i>
+                    </div>
+                    
+                    
+                </div>
+
+            </section>
+
+
+
+            <section>
 
             </section>
 
         </main>
         <script>
+           var number = 1;
+
+           document.getElementById("minus").addEventListener("click", () => {
+                if (number > 1) 
+                { // Prevent going below 1
+                    number--;
+                    document.getElementById("quantityNo").textContent = number;
+                }
+            });
+
+
+            document.getElementById("add").addEventListener("click", () => {
+                if(number < 100)
+                {
+                    number++;
+                    document.getElementById("quantityNo").textContent = number; 
+                }   
+                
+            });
+
+            const likeButton = document.getElementById("like");
+            let isLiked = false; // Track like state
+
+
+            likeButton.addEventListener("click", function() {
+                isLiked = !isLiked; // Toggle state
+                if (isLiked) {
+                    this.innerHTML = "<i class='bx bxs-heart' style='color:#cb0505'></i>"; // Stay red when clicked
+                } else {
+                    this.innerHTML = "<i class='bx bx-heart'></i>"; // Back to normal when clicked again
+                }
+            });
+
            
-            
 
 
         </script>

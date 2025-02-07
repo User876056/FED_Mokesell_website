@@ -38,3 +38,11 @@ https://www.flaticon.com/free-icon/bicycle_562008?term=bicycle&page=1&position=3
 Banner:
 https://thelivenagpur.com/2024/06/04/bring-the-stadium-home-with-samsung-big-tv-days-sale-on-ultra-premium-tvs/
 
+
+Product detail page:
+
+Guarantee icon:
+https://www.flaticon.com/free-icon/shield_306047?term=shield&page=1&position=31&origin=search&related_id=306047
+
+Delivery icon:
+https://www.flaticon.com/free-icon/shipped_411712?term=delivery&page=1&position=79&origin=search&related_id=411712
