@@ -17,205 +17,108 @@
 
 
 
-            /* slider */
-            .slider{
-                position: relative;
+            
+
+           
+
+            main{
                 width: 80%;
                 margin: auto;
-                overflow:hidden;
-
+                background-color: rgba(231, 231, 231, 0.566);
+                margin-top: 50px;
+                display: flex;
+                flex-direction: row;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             }
-            .slider img{
-                width: 100%;
-                height: 400px;
+            #product-image img{
+                width: 550px;
+                height:550px;
                 border-radius: 10px;
-                display: none;
+                margin: 3%;
             }
-            img.displaySlide{
-                display: block;
-                animation-name: fade;
-                animation-duration: 1.5s;
-
-
-            }
-            .slider button{
-
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 2rem;
-                padding: 10px 15px;
-                background-color: rgba(255, 255, 255, 0.605);
-                border-radius: 100px;
-                color: rgb(0, 0, 0);
-                border: none;
-                cursor: pointer;
-
-            }
-
-            .prev{
-                left: 0;
-
-            }
-            .next{
-                right: 0;
-            }
-            @keyframes fade {
-                from{opacity: 0.5;}
-                to {opacity: 1;}
-            }
-            #categories-container {
+            #informations{
                 display: flex;
-                width: 80%;
-                margin: auto;
-                gap: 28px;
+                flex-direction: column;
+               
+                margin-left: 6%;
+                
             }
-
-            .category {
-                width: 130px;
-                height: 130px;
-                background-color: #e6e6e6;
-
-                border-radius: 15px;
-                text-align: center;
-                padding: 20px;
-                text-decoration: none;
-                color: black;
-
-                transition: transform 0.2s, box-shadow 0.2s;
+            #product-name{
+                font-size:1.8rem;
+                margin-bottom: 0;
+                
             }
-
-            .category:hover {
-                transform: scale(1.05);
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            #sales{
+                display: flex;
+                flex-direction: row;
+                
             }
-
-            .category img {
-                width: 80px;
-                height: 80px;
-
+            .info{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-right:18%;
             }
-            .category p{
-
+            .info p{
+                
+                font-size: 1.2rem;
+                margin-right: 8%;
             }
-
-            .see-all {
-                margin-top: 20px;
-                text-decoration: none;
-                color: #007bff;
+            .info div{
+                font-size: 1.5rem;
                 font-weight: bold;
             }
-
-            .see-all:hover {
-                text-decoration: underline;
-            }
-
-
-            .trending-container {
-                display: flex;
-                width: 80%;
-                margin: auto;
-                gap: 5px;
-            }
-
-            .product-card {
-                width: calc(100%/5);
-                height: 400px;
-
-
-
-                text-decoration: none;
-                color: #000;
-                overflow:visible;
-                transition: transform 0.3s, box-shadow 0.3s;
-                object-fit:cover;
-            }
-
-            .product-card:hover {
-
-                box-shadow:0 10px 20px rgba(0, 0, 0, 0.2);
-                border-radius: 8px;
-
-            }
-
-            .product-card img {
-
-                width: 95%;
-                height: 250px;
-                margin: 2.5%;
-                border-radius: 8px;
-
-
-            }
-
-            .product-info {
-                padding: 15px;
-                padding-top:0%;
-
-            }
-
-            .product-info h3 {
-                font-size: 16px;
-                margin: 0;
-            }
-
-            .product-info p {
-                margin: 5px 0;
-            }
-
-            .price {
+            #price{
+                margin-top: 1%;
+                font-size: 3.5rem;  
                 font-weight: bold;
-                color: #007bff;
             }
-
-            .old-price {
-                text-decoration: line-through;
-                color: #999;
-            }
-            #Banner{
-
+            .Guarantee{
                 display: flex;
-                width: 80%;
-                margin: auto;
-                object-fit: fill;
-                border-radius: 8px;
-
+                flex-direction: row;
+                align-items: center;
+                margin-top: 2%;
             }
-
-
-            /* Popup Background */
-            .popup {
-                display: none; /* Hidden by default */
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-                justify-content: center;
+            .Guarantee div{
+                width: 10%;
+                color:rgb(83, 83, 83);
+                margin-right: 5% ;
+                
+            }
+            .Guarantee img{
+                width: 5%;
+                margin-right: 10px;
+            }
+            
+            #quantity{
+                display: flex;
+                flex-direction: row;
+                margin-top: 2%;
                 align-items: center;
             }
-
-            /* Popup Box */
-            .popup-content {
-                background: white;
-                padding: 20px;
-                width: 300px;
-                height: 200px;
-                text-align: center;
-                border-radius: 10px;
-                position: relative;
-            }
-
-            /* Close Button */
-            .close {
-                position: absolute;
-                top: 10px;
-                right: 15px;
-                font-size: 20px;
+            #quantity button{
+                height: 40px;
+                width: 40px;
+                font-size: 2rem;
                 cursor: pointer;
             }
+            #quantity div{
+                margin-right: 7%;
+            }
+            #quantity p{
 
+                width: 65px;
+                height: 38px;
+                display: flex;
+                justify-content:center ;
+                align-items: center;
+                border: 1px solid black;
+                font-size: 1.3rem;
+                color: #940385;
+                font-weight: 550;
+            }
+            
+            
         </style>
     </head>
     <body>
@@ -302,36 +205,70 @@
        </header>
         <main>
 
+            <div id="product-image">
+
+                <img src="#" alt="">
+            </div>
+
+
+            <section id="informations" >
+                <h2 id="product-name" ></h2>
+                <p id="description"></p>
+
+                <section id="sales">
+                    <div class="info"> 
+                        <p>Rating: </p>
+                        <div id="rating"></div>
+
+                    </div>
+                    <div class="info">
+                        <p>Review: </p>
+                        <div id="review"></div>
+                        
+
+                    </div>
+                    <div class="info">
+                        <p >Sold: </p>
+                        <div id="sold"></div>
+
+                    </div>
+                </section>
+
+                
+                <div id="price"></div>
+
+                <div class="Guarantee">
+                    <div>Shipping</div>
+                    <img src="Images/Delivery.png" alt="" style="margin-right: 10px;">
+                    <p>Guaranteed to get in 8 days, with shipping fee $0.00 - $1.99</p>
+                </div>
+                
+
+                <div class="Guarantee">
+                    <div>Shopping Guarantee</div>
+                    <img src="Images/Guarantee.png" alt="" style="margin-right: 10px;">
+                    <p>15-Day Free Returns</p>
+                </div>
+
+
+                <section id="quantity">
+                    <div>Quantity</div>
+                    <button id="minus" >-</button>
+                    <p id="quantityNo">1</p>
+                    <button id="add">+</button>
+
+                </section>
+
+                
+
+            </section>
 
             
-            <button id="openPopup">Open Popup</button>
-
-            <div id="popup" class="popup">
-                <div class="popup-content">
-                    <span class="close">&times;</span>
-                    <h2>Popup Title</h2>
-                    <p>This is a centered popup!</p>
-                </div>
-            </div>
 
 
         </main>
         <script>
 
-            document.getElementById("openPopup").addEventListener("click", function () {
-                document.getElementById("popup").style.display = "flex";
-            });
-
-            document.querySelector(".close").addEventListener("click", function () {
-                document.getElementById("popup").style.display = "none";
-            });
-
-            // Optional: Close when clicking outside the popup
-            document.getElementById("popup").addEventListener("click", function (event) {
-                if (event.target === this) {
-                    this.style.display = "none";
-                }
-            });
 
 
         </script>
