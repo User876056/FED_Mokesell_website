@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="style.css">
         <script src="CheckLogin.js"></script>
+        <script src="CheckProduct.js"></script>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <style>
@@ -304,6 +305,10 @@
                             <p class="review/s">Price: $${Product.price_sg}</p>
                         </div>
                     `;
+                    card.addEventListener("click", () => {
+                        name = Product.name; // Store the product's name in the variable
+                        console.log("Selected product:", name); // Debugging output
+                    });
                     container.appendChild(card);
                 });
             }
