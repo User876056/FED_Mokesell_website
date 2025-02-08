@@ -30,4 +30,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const inputBox = document.getElementById("input-box");
+    const myUL = document.getElementById("myUL");
+
+    inputBox.addEventListener("input", function () {
+        const filter = inputBox.value.toLowerCase();
+        let hasMatches = false;
+
+        for (let item of myUL.getElementsByTagName("li")) {
+            if (item.textContent.toLowerCase().includes(filter)) {
+                item.style.display = "block";
+                hasMatches = true;
+            } else {
+                item.style.display = "none";
+            }
+        }
+
+        myUL.style.display = hasMatches ? "block" : "none";
+    });
+
+    document.addEventListener("click", function (e) {
+        if (!inputBox.contains(e.target) && !myUL.contains(e.target)) {
+            myUL.style.display = "none";
+        }
+    });
+});
+
 
