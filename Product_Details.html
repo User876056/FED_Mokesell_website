@@ -381,8 +381,6 @@
             getProductByName();
 
 
-
-
            var number = 1;
            document.getElementById("minus").addEventListener("click", () => {
                 if (number > 1) 
@@ -401,6 +399,12 @@
                 }   
                 
             });
+
+            const buyBtn = document.getElementById("buynow");
+            buyBtn.addEventListener("click", function() {
+                window.location.href = "Buy.html"
+            });
+
 
             const likeButton = document.getElementById("like");
             let isLiked = false; // Track like state

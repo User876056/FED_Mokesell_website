@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="CheckLogin.js"></script>
+
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <style>
+
+
+
+            /* slider */
+            .slider{
+                position: relative;
+                width: 80%;
+                margin: auto;
+                overflow:hidden;
+
+            }
+            .slider img{
+                width: 100%;
+                height: 400px;
+                border-radius: 10px;
+                display: none;
+            }
+            img.displaySlide{
+                display: block;
+                animation-name: fade;
+                animation-duration: 1.5s;
+
+
+            }
+            .slider button{
+
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 2rem;
+                padding: 10px 15px;
+                background-color: rgba(255, 255, 255, 0.605);
+                border-radius: 100px;
+                color: rgb(0, 0, 0);
+                border: none;
+                cursor: pointer;
+
+            }
+
+            .prev{
+                left: 0;
+
+            }
+            .next{
+                right: 0;
+            }
+            @keyframes fade {
+                from{opacity: 0.5;}
+                to {opacity: 1;}
+            }
+            #categories-container {
+                display: flex;
+                width: 80%;
+                margin: auto;
+                gap: 28px;
+            }
+
+            .category {
+                width: 130px;
+                height: 130px;
+                background-color: #e6e6e6;
+
+                border-radius: 15px;
+                text-align: center;
+                padding: 20px;
+                text-decoration: none;
+                color: black;
+
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+
+            .category:hover {
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .category img {
+                width: 80px;
+                height: 80px;
+
+            }
+            .category p{
+
+            }
+
+            .see-all {
+                margin-top: 20px;
+                text-decoration: none;
+                color: #007bff;
+                font-weight: bold;
+            }
+
+            .see-all:hover {
+                text-decoration: underline;
+            }
+
+
+            .trending-container {
+                display: flex;
+                width: 80%;
+                margin: auto;
+                gap: 5px;
+            }
+
+            .product-card {
+                width: calc(100%/5);
+                height: 400px;
+
+
+
+                text-decoration: none;
+                color: #000;
+                overflow:visible;
+                transition: transform 0.3s, box-shadow 0.3s;
+                object-fit:cover;
+            }
+
+            .product-card:hover {
+
+                box-shadow:0 10px 20px rgba(0, 0, 0, 0.2);
+                border-radius: 8px;
+
+            }
+
+            .product-card img {
+
+                width: 95%;
+                height: 250px;
+                margin: 2.5%;
+                border-radius: 8px;
+
+
+            }
+
+            .product-info {
+                padding: 15px;
+                padding-top:0%;
+
+            }
+
+            .product-info h3 {
+                font-size: 16px;
+                margin: 0;
+            }
+
+            .product-info p {
+                margin: 5px 0;
+            }
+
+            .price {
+                font-weight: bold;
+                color: #007bff;
+            }
+
+            .old-price {
+                text-decoration: line-through;
+                color: #999;
+            }
+            #Banner{
+
+                display: flex;
+                width: 80%;
+                margin: auto;
+                object-fit: fill;
+                border-radius: 8px;
+
+            }
+
+
+            /* Popup Background */
+            .popup {
+                display: none; /* Hidden by default */
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Popup Box */
+            .popup-content {
+                background: white;
+                padding: 20px;
+                width: 300px;
+                height: 200px;
+                text-align: center;
+                border-radius: 10px;
+                position: relative;
+            }
+
+            /* Close Button */
+            .close {
+                position: absolute;
+                top: 10px;
+                right: 15px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+
+        </style>
+    </head>
+    <body>
+       <header>
+        <div id="logo">
+            <a href="index.html" >
+              <img src="Images/logo.jpeg" alt="">
+            </a>
+          </div>
+
+          <section id="header-icons">
+            <div id="header-category">
+                <a href="Tools.html" class="head-category">
+
+                  <p >Home Tools</p>
+                </a>
+                <a href="Cars.html" class="head-category">
+
+                  <p>Cars</p>
+                </a>
+                <a href="Toys.html" class="head-category">
+
+                  <p>Toys</p>
+                </a>
+                <a href="Mobile.html" class="head-category">
+
+                  <p>Mobile Phones & Gadgets</p>
+                </a>
+                <a href="Womens_fashion.html" class="head-category">
+                  <p>Women's Fashion</p>
+                </a>
+                <a href="Mens_fashion.html" class="head-category" >
+                  <p>Men's Fashion</p>
+                </a>
+
+                <a href="Bicycles.html" class="head-category">
+                  <p>Bicycles</p>
+                </a>
+
+                <a href="SignUp.html" class="register-button">
+                  <p>Sign Up</p>
+                </a>
+
+                <a href="Login.html" class="register-button">
+                  <p>Login</p>
+                </a>
+
+                
+                  <div id="accountContainer" style="display: none;">
+                    <button id="accountBtn" class="account-button">
+                      <div id="avatar"></div>
+                      <span id="usernameDisplay"></span>
+                    </button>
+                  </div>
+                  
+                
+              </div>
+                
+                
+
+            </div>
+            <div id="second-row">
+              <div id="search-box">
+                <i class='bx bx-search'></i>
+
+                <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
+
+              </div>
+
+              <div id="function-buttons" style="display: none;" >
+                <a href="wishlist.html" aria-label="Wishlist">
+                    <i class='bx bx-heart'></i>
+                </a>
+        
+                <a href="cart.html" aria-label="Cart">
+                    <i class='bx bx-cart-alt'></i>
+                </a>
+
+                
+              </div>
+            </div>
+          </section>
+
+       </header>
+        <main>
+
+
+            
+            <button id="openPopup">Open Popup</button>
+
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <span class="close">&times;</span>
+                    <h2>Popup Title</h2>
+                    <p>This is a centered popup!</p>
+                </div>
+            </div>
+
+
+        </main>
+        <script>
+
+            document.getElementById("openPopup").addEventListener("click", function () {
+                document.getElementById("popup").style.display = "flex";
+            });
+
+            document.querySelector(".close").addEventListener("click", function () {
+                document.getElementById("popup").style.display = "none";
+            });
+
+            // Optional: Close when clicking outside the popup
+            document.getElementById("popup").addEventListener("click", function (event) {
+                if (event.target === this) {
+                    this.style.display = "none";
+                }
+            });
+
+
+        </script>
+    </body>
+</html>
