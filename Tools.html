@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -166,11 +165,12 @@
         </style>
     </head>
     <body>
+      
         <header>
             <div id="logo">
-              <a href="index.html" >
+            <a href="index.html" >
                 <img src="Images/logo.jpeg" alt="">
-              </a>
+            </a>
             </div>
 
             <section id="header-icons">
@@ -200,13 +200,13 @@
 
                   <a href="Bicycles.html" class="head-category">
                     <p>Bicycles</p>
-                  </a>
+                </a>
 
-                  <a href="SignUp.html" class="register-button">
+                <a href="SignUp.html" class="register-button">
                     <p>Sign Up</p>
-                  </a>
+                </a>
 
-                  <a href="Login.html" class="register-button">
+                <a href="Login.html" class="register-button">
                     <p>Login</p>
                   </a>
 
@@ -253,10 +253,10 @@
 
         <div class="filter-buttons">
             <button onclick="filterSelection('all')" class="active">All</button>
-            <button onclick="filterSelection('Screwdriver')">Screwdrivers</button>
-            <button onclick="filterSelection('plier')">Pliers</button>
-            <button onclick="filterSelection('Wrench')">Wrenchs</button>
-            <button onclick="filterSelection('Hammer')">Hammers</button>
+            <button onclick="filterSelection('Hammer')">Hammer</button>
+            <button onclick="filterSelection('Screwdriver')">Screwdriver</button>
+            <button onclick="filterSelection('Plier')">Plier</button>
+            <button onclick="filterSelection('Wrench')">Wrench</button>
             <button onclick="filterSelection('Nails')">Nails</button>
         </div>
 
@@ -265,8 +265,8 @@
         <script>
             // Fetch data from API
             async function fetchProducts() {
-                const API_URL = 'https://mokesellproducts-3f4b.restdb.io/rest/products'; 
-                const API_KEY = '67965648ed070e2a073bbb9c';
+                const API_URL = 'https://mokesold-2e4b.restdb.io/rest/products'; 
+                const API_KEY = '67a670f5df7c26d07d9657c0';
 
                 try {
                     const response = await fetch(API_URL, {
@@ -340,4 +340,3 @@
         
     </body>
 </html>
-
