@@ -164,98 +164,75 @@
         </style>
     </head>
     <body>
-      
         <header>
             <div id="logo">
-            <a href="index.html" >
+              <a href="index.html" >
                 <img src="Images/logo.jpeg" alt="">
-            </a>
+              </a>
             </div>
 
             <section id="header-icons">
-            <div id="header-category">
-                <a href="Home_tool.html" class="head-category">
-
-                    <p >Home Tools</p>
-                </a>
-                <a href="cars.html" class="head-category">
-
-                    <p>Cars</p>
-                </a>
-                <a href="home-services.html" class="head-category">
-
-                    <p>Toys</p>
-                </a>
-                <a href="gadgets.html" class="head-category">
-
-                    <p>Mobile Phones & Gadgets</p>
-                </a>
-                <a href="womens-fashion.html" class="head-category">
-                    <p>Women's Fashion</p>
-                </a>
-                <a href="mens-fashion.html" class="head-category" >
-                    <p>Men's Fashion</p>
-                </a>
-
-                <a href="luxury.html" class="head-category">
-                    <p>Bicycles</p>
-                </a>
-
-                <a href="SignUp.html" class="register-button">
-                    <p>Sign Up</p>
-                </a>
-
-                <a href="Login.html" class="register-button">
-                    <p>Login</p>
-                </a>
-
-                
-                    <div id="accountContainer" style="display: none;">
-                    <button id="accountBtn" class="account-button">
-                        <div id="avatar"></div>
-                        <span id="usernameDisplay"></span>
-                    </button>
-                    </div>
+              <div id="header-category">
+                  <a href="Home_tool.html" class="head-category">
                     
+                    <p >Home Tools</p>
+                  </a>
+                  <a href="cars.html" class="head-category">
+                    
+                    <p>Cars</p>
+                  </a>
+                  <a href="home-services.html" class="head-category">
+                    
+                    <p>Toys</p>
+                  </a>
+                  <a href="gadgets.html" class="head-category">
+                    
+                    <p>Mobile Phones & Gadgets</p>
+                  </a>
+                  <a href="womens-fashion.html" class="head-category">
+                    <p>Women's Fashion</p>
+                  </a>
+                  <a href="mens-fashion.html" class="head-category" >
+                    <p>Men's Fashion</p>
+                  </a>
                 
-                </div>
-                
-                
+                  <a href="luxury.html" class="head-category">
+                    <p>Bicycles</p>
+                  </a>
 
-            </div>
-            <div id="second-row">
-                <div id="search-box">
-                <i class='bx bx-search'></i>
+                  <a href="SignUp.html" class="register-button">
+                    <p>Sign Up</p>
+                  </a>
 
-                <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
-
-                </div>
-
-                <div id="function-buttons" style="display: none;" >
-                <a href="wishlist.html" aria-label="Wishlist">
+                  <a href="Login.html" class="register-button">
+                    <p>Login</p>
+                  </a>
+                  <!-- <a href="" id="" class="button" >
+                    <i class='bx bx-cart' ></i>
+                  </a>
+      
+                  <a href="" id="" class="button">
                     <i class='bx bx-heart'></i>
-                </a>
-        
-                <a href="cart.html" aria-label="Cart">
-                    <i class='bx bx-cart-alt'></i>
-                </a>
-
+                  </a> -->
+              </div>
+              
+              <div id="search-box">
+                <i class='bx bx-search'></i>
                 
-                </div>
-            </div>
+                <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
+                  
+              </div>
             </section>
-
             
-
-
+            
         </header>
 
         <div class="filter-buttons">
             <button onclick="filterSelection('all')" class="active">All</button>
-            <button onclick="filterSelection('T shirt')">T shirts</button>
-            <button onclick="filterSelection('suit')">Suits</button>
-            
- 
+            <button onclick="filterSelection('Skirt')">Skirts</button>
+            <button onclick="filterSelection('Dress')">Dresses</button>
+            <button onclick="filterSelection('Wedding gown')">Wedding gowns</button>
+            <button onclick="filterSelection('Suit')">Work suits</button>
         </div>
 
         <div id="products-container"></div>
@@ -263,8 +240,8 @@
         <script>
             // Fetch data from API
             async function fetchProducts() {
-                const API_URL = 'https://mokesellproducts-3f4b.restdb.io/rest/products'; 
-                const API_KEY = '67965648ed070e2a073bbb9c';
+                const API_URL = 'https://mokesold-2e4b.restdb.io/rest/products '; 
+                const API_KEY = '67a670f5df7c26d07d9657c0';
 
                 try {
                     const response = await fetch(API_URL, {
@@ -331,7 +308,7 @@
         
             // Initialize products display
             fetchProducts().then(Products => {
-                currentProducts = Products.filter(Product => Product.type === 'Mens fashion');
+                currentProducts = Products.filter(Product => Product.type === 'Womens fashion');
                 renderProducts(currentProducts);
             });
         </script>

@@ -1,1 +1,289 @@
-
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="normalize.css">
+        <link rel="stylesheet" href="style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <style>
+            
+            /* Updated Product Cards */
+            #products-container {
+                margin: auto;
+                width: 80%;
+                padding: 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 30px;
+            }
+            .product-card {
+                background: white;
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                
+            }
+            .product-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            }
+            .product-image {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+            .product-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            .product-card:hover .product-image img {
+                transform: scale(1.05);
+            }
+            .product-info {
+                padding: 15px;
+                background: white;
+            }
+            .product-name {
+                font-size: 16px;
+                color: #333;
+                margin-bottom: 8px;
+                line-height: 1.3;
+            }
+            .product-price {
+                font-size: 18px;
+                font-weight: 700;
+                color: #2c3e50;
+            }
+            
+             /* Improved Filter Buttons */
+            .filter-buttons {
+                
+                margin: auto;
+                margin-top: 3%;
+                margin-bottom: 2%;
+                width: 80%;
+                display: flex;
+                gap: 15px;
+                /* padding: 15px;
+                border-radius: 12px;
+                
+                z-index: 10;
+                display: flex;
+                flex-direction: column;
+                gap: 12px; */
+            }
+            .filter-buttons button {
+                padding: 10px 20px;
+                border: 1px solid #e0e0e0;
+                background: #d3d3d3d9;
+                color: black;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                font-size: 15px;
+                
+            }
+            .filter-buttons button:hover {
+                background-color: #940385;
+                color: white;
+                
+                transform: scale(1.1);
+    
+            }
+            .filter-buttons button.active {
+                background-color: #940385;
+                color: white;
+                
+                font-weight: 500;
+            }
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                #products-container {
+                    grid-template-columns: repeat(2, 1fr);
+                    margin-left: 0;
+                    padding-left: 20px;
+                    padding-right: 20px;
+                    gap: 15px;
+                }
+                .filter-buttons {
+                    position: static;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin: 20px;
+                    justify-content: center;
+                    box-shadow: none;
+                    background: transparent;
+                }
+                .product-image {
+                    height: 150px;
+                }
+                .product-name {
+                    font-size: 14px;
+                }
+                .product-price {
+                    font-size: 16px;
+                }
+            }
+            @media (max-width: 480px) {
+                #products-container {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id="logo">
+              <a href="index.html" >
+                <img src="Images/logo.jpeg" alt="">
+              </a>
+            </div>
+            <section id="header-icons">
+              <div id="header-category">
+                  <a href="Home_tool.html" class="head-category">
+                    
+                    <p >Home Tools</p>
+                  </a>
+                  <a href="cars.html" class="head-category">
+                    
+                    <p>Cars</p>
+                  </a>
+                  <a href="home-services.html" class="head-category">
+                    
+                    <p>Toys</p>
+                  </a>
+                  <a href="gadgets.html" class="head-category">
+                    
+                    <p>Mobile Phones & Gadgets</p>
+                  </a>
+                  <a href="womens-fashion.html" class="head-category">
+                    <p>Women's Fashion</p>
+                  </a>
+                  <a href="mens-fashion.html" class="head-category" >
+                    <p>Men's Fashion</p>
+                  </a>
+                
+                  <a href="luxury.html" class="head-category">
+                    <p>Bicycles</p>
+                  </a>
+                  <a href="SignUp.html" class="register-button">
+                    <p>Sign Up</p>
+                  </a>
+                  <a href="Login.html" class="register-button">
+                    <p>Login</p>
+                  </a>
+                  <!-- <a href="" id="" class="button" >
+                    <i class='bx bx-cart' ></i>
+                  </a>
+      
+                  <a href="" id="" class="button">
+                    <i class='bx bx-heart'></i>
+                  </a> -->
+              </div>
+              
+              <div id="search-box">
+                <i class='bx bx-search'></i>
+                
+                <input type="text" id="input-box" placeholder="Search anything" autocomplete="off">
+                  
+              </div>
+            </section>
+            
+            
+        </header>
+        <div class="filter-buttons">
+            <button onclick="filterSelection('all')" class="active">All</button>
+            <button onclick="filterSelection('Screwdriver')">Screwdrivers</button>
+            <button onclick="filterSelection('plier')">Pliers</button>
+            <button onclick="filterSelection('Wrench')">Wrenchs</button>
+            <button onclick="filterSelection('Hammer')">Hammers</button>
+            <button onclick="filterSelection('Nails')">Nails</button>
+        </div>
+        <div id="products-container"></div>
+        <script>
+            // Fetch data from API
+            async function fetchProducts() {
+                const API_URL = 'https://mokesold-2e4b.restdb.io/rest/products'; 
+                const API_KEY = '67a670f5df7c26d07d9657c0';
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'GET',
+                        headers: {
+                            'x-apikey': API_KEY,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch products');
+                    }
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching products:', error);
+                    return [];
+                }
+            }
+            
+            // Render products on the page
+            function renderProducts(Products) {
+                const container = document.getElementById('products-container');
+                container.innerHTML = ''; // Clear previous content
+        
+                
+                Products.forEach(Product => {  // Use 'Product' for each product item
+                    const card = document.createElement('div');
+                    card.className = `product-card filterDiv ${Product.name}`;  // Ensure correct casing here
+                    card.innerHTML = `
+                        
+                        <img src="Product_Images/${Product.image_name || 'placeholder.jpg'}" alt="${Product.name}" />
+                        <div class="product-info">
+                            <h3>${Product.name}</h3>
+                            <p class="price">Price: $${Product.price_sg}</p>
+                            <p class="review/s">Price: $${Product.price_sg}</p>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+        
+            // Filter products by category
+            function filterSelection(category) {
+                const filterButtons = document.querySelectorAll('.filter-buttons button');
+                filterButtons.forEach(button => button.classList.remove('active'));
+        
+                document
+                    .querySelector(`button[onclick="filterSelection('${category}')"]`)
+                    .classList.add('active');
+        
+                if (category === 'all') {
+                    renderProducts(currentProducts);
+                } else {
+                    const filteredProducts = currentProducts.filter(Product =>
+                        Product.name.toLowerCase().includes(category.toLowerCase())  // Ensure correct casing
+                    );
+                    renderProducts(filteredProducts);
+                }
+            }
+        
+            let currentProducts = [];
+        
+            // Initialize products display
+            fetchProducts().then(Products => {
+                currentProducts = Products.filter(Product => Product.type === 'Home Tools');
+                renderProducts(currentProducts);
+            });
+        </script>
+        
+    </body>
+</html>
