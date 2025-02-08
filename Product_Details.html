@@ -34,6 +34,11 @@
                 margin-left: 6%;
                 
             }
+            #product-name{
+                font-size:1.8rem;
+                margin-bottom: 0;
+                
+            }
             #sales{
                 display: flex;
                 flex-direction: row;
@@ -51,7 +56,8 @@
                 margin-right: 8%;
             }
             .info div{
-                font-size: larger;
+                font-size: 1.5rem;
+                font-weight: bold;
             }
             #price{
                 margin-top: 1%;
@@ -74,12 +80,7 @@
                 width: 5%;
                 margin-right: 10px;
             }
-            #description-box{
-                width: 65%;
-                height:80px;
-                background-color: rgb(255, 255, 255);
-                padding: 2%;
-            }
+            
             #quantity{
                 display: flex;
                 flex-direction: row;
@@ -238,38 +239,38 @@
         
         </header>
         <main>
+        
             <div id="product-image">
 
-                <img src="Images/phone.jpg" alt="">
+                <img src="#" alt="">
             </div>
 
 
             <section id="informations" >
-                <h2 id="product-name" style="font-size:1.8rem;">useless phone </h2>
-
-                
+                <h2 id="product-name" ></h2>
+                <p id="description"></p>
 
                 <section id="sales">
                     <div class="info"> 
                         <p>Rating: </p>
-                        <div >wee</div>
+                        <div id="rating"></div>
 
                     </div>
                     <div class="info">
                         <p>Review: </p>
-                        <div >efwf</div>
+                        <div id="review"></div>
                         
 
                     </div>
                     <div class="info">
                         <p >Sold: </p>
-                        <div >wefw</div>
+                        <div id="sold"></div>
 
                     </div>
                 </section>
 
                 
-                <div id="price">$25</div>
+                <div id="price"></div>
 
                 <div class="Guarantee">
                     <div>Shipping</div>
@@ -283,17 +284,7 @@
                     <img src="Images/Guarantee.png" alt="" style="margin-right: 10px;">
                     <p>15-Day Free Returns</p>
                 </div>
-<!-- 
-                <div class="Guarantee">
-                    <div style="margin-bottom: 75px;">Description</div>
-                    
-                    <p id="description-box">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae, 
-                        tenetur! Aliquam in numquam ducimus! 
-                      ulla consequuntur, cum maxime? Ipsam, 
-                        consequuntur reiciendis.</p>
-                    
-                    
-                </div> -->
+
 
                 <section id="quantity">
                     <div>Quantity</div>
@@ -330,8 +321,69 @@
 
         </main>
         <script>
-           var number = 1;
 
+            async function fetchProducts() {
+                const API_URL = 'https://mokesold-2e4b.restdb.io/rest/products'; 
+                const API_KEY = '67a670f5df7c26d07d9657c0';
+
+                try {
+                    const response = await fetch(API_URL, {
+                        method: 'GET',
+                        headers: {
+                            'x-apikey': API_KEY,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch products');
+                    }
+                    const data = await response.json();
+                    return data;
+                } catch (error) {
+                    console.error('Error fetching products:', error);
+                    return [];
+                }
+            }
+
+            async function getProductByName() {
+                const chosenProductName = localStorage.getItem("ChosenProduct"); // Get stored product name
+
+                if (!chosenProductName) {
+                    console.error("No product name found in localStorage");
+                    return;
+                }
+
+                const products = await fetchProducts(); // Fetch all products
+
+                // Find the product that matches the chosen name
+                const selectedProduct = products.find(product => product.name === chosenProductName);
+
+                if (selectedProduct) {
+                    console.log("Selected Product:", selectedProduct);
+                    // Do something with the selected product, e.g., display it on the page
+                    
+                    document.getElementById("product-name").textContent = chosenProductName;
+                    document.getElementById("description").textContent = selectedProduct.description
+                    document.getElementById("product-image").querySelector("img").src ="Product_Images/"+selectedProduct.image_name;
+                    document.getElementById('rating').textContent = selectedProduct.ratings
+                    document.getElementById('review').textContent = selectedProduct.reviews
+                    document.getElementById('sold').textContent = selectedProduct.sold
+                    document.getElementById("price").textContent  ="$"+selectedProduct.price_sg
+                    
+                } 
+                else 
+                {
+                    console.error("Product not found");
+                }
+            }
+
+            // Call the function to fetch and display the product
+            getProductByName();
+
+
+
+
+           var number = 1;
            document.getElementById("minus").addEventListener("click", () => {
                 if (number > 1) 
                 { // Prevent going below 1
