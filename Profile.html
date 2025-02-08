@@ -36,7 +36,7 @@
                 border-radius: 50%;
                 text-transform: uppercase;
                 margin-left: 10%;
-                margin-right: 15px;
+                margin-right: 18px;
             }
            
 
@@ -50,14 +50,17 @@
                
                 
             }
-            #head .username{
+            #username{
                 font-size: 30px;
+                margin-right: 400px;
+                
             }
             #account-info{
-                height: 450px;
+                height: 550px;
                
                 border-radius: 10px;
                 box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                margin-bottom: 10%;
             }
             .info{
                 display: flex;
@@ -67,26 +70,70 @@
                 margin-left: 10.5%;
                 
             }
-            .info div{
+            .info input{
                 font-size: 18px;
+                border:none;
+                background: transparent;
+                width: 500px;
+                border-radius: 10px;
+                padding: 1%;
+                
             }
             .attributes{
                 margin-right: 15px;
                font-weight: bold;
                font-size: 19px;
             }
-            #logoutBtn{
-                font-size: 2rem;
-                padding: 1.2%;
+            #head button{
+                font-size: 1.8rem;
+                padding: 1.4%;
                 border-radius: 10px;
                 color: white;
                 background-color:#940385 ;
                 border: none;
                 cursor: pointer;
+                margin-right: 40px;
+                
+            }
+            
+            #editBtn:hover{
+              transform: scale(1.1);
+              transition: transform 0.3s ease;
             }
             #logoutBtn:hover{
                 transform: scale(1.1);
                 transition: transform 0.3s ease;
+            }
+            #saveBtn {
+                background-color: #028922;
+                border: none;
+                color: rgb(255, 255, 255);
+                font-size: 25px;
+                margin-left: 10%;
+                margin-top: 20px;
+                padding: 1%;
+                border-radius: 10px;
+                cursor: pointer;
+                display: none;
+
+            }
+            #saveBtn:hover{
+              background-color: #00ba2c;
+            }
+            #cancelBtn{
+                background-color: #b70025;
+                border: none;
+                color: rgb(255, 255, 255);
+                font-size: 25px;
+                margin-left: 5%;
+                margin-top: 20px;
+                padding: 1%;
+                border-radius: 10px;
+                cursor: pointer;
+                display: none;
+            }
+            #cancelBtn:hover{
+              background-color: #df0101;
             }
         </style>
     </head>
@@ -177,45 +224,44 @@
                 
                 <div id="head">
                     <div id="account"></div>
-                    <div class="username" style="margin-right: 650px;"></div>
+                    <div id="username"></div>
+                    <button id="editBtn">Edit Profile</button>
                     <button id="logoutBtn">Logout</button>
+                    
                 </div>
                     
                
             
                 <section id="account-info">
-
-                    <div class="info"> 
-                        <p class="attributes">Username: </p>
-                        <div class="username"></div>
-
-                    </div>
-                    <div class="info">
-                        <p class="attributes">Password: </p>
-                        <div id="show-password"></div>
-                        
-
-                    </div>
-                    <div class="info">
-                        <p class="attributes">Email: </p>
-                        <div id="show-email"></div>
-
-                    </div>
-                    <div class="info">
-                        <p class="attributes">Contact Number: </p>
-                        <div id="show-contactNo"></div>
-
-                    </div >
-                    
-                    <div class="info">
-                        <p class="attributes">Address: </p>
-                        <div id="show-address"></div>
-
-                    </div>
-
-
-                </section>
-
+                  
+          
+                  <div class="info">
+                      <p class="attributes">Password:</p>
+                      <input type="text" id="passwordInput" class="input-field" disabled>
+                  </div>
+          
+                  <div class="info">
+                      <p class="attributes">Email:</p>
+                      <input type="email" id="emailInput" class="input-field" disabled>
+                  </div>
+          
+                  <div class="info">
+                      <p class="attributes">Contact Number:</p>
+                      <input type="text" id="contactNoInput" class="input-field" disabled>
+                  </div>
+          
+                  <div class="info">
+                      <p class="attributes">Address:</p>
+                      <input type="text" id="addressInput" class="input-field" disabled>
+                  </div>
+          
+                  <div class="buttons">
+                      
+                      <button id="saveBtn">Confirm Change</button>
+                      <button id="cancelBtn">Cancel</button>
+                      
+                  </div>
+              </section>
                 
             </section>
             
@@ -228,41 +274,158 @@
         </main>
         
         <script>
-            const username = localStorage.getItem("Username");
-            const userPassword = localStorage.getItem("userPassword")
-            const useremail = localStorage.getItem("userEmail");
-            const userContactNo = localStorage.getItem("userContactNo");
-            const useraddress = localStorage.getItem("userAddress");
+           // Retrieve stored data
+            const username = localStorage.getItem("Username") ;
+            const userPassword = localStorage.getItem("userPassword") ;
+            const userEmail = localStorage.getItem("userEmail");
+            const userContactNo = localStorage.getItem("userContactNo"); 
+            const userAddress = localStorage.getItem("userAddress");
 
-            document.getElementById("account").textContent = username.charAt(0);
-            const namedisplay = document.querySelectorAll(".username");
-
-            namedisplay.forEach(element => {
-                element.textContent = username;
-            });
-
-            document.getElementById('show-password').textContent = userPassword;
-            document.getElementById('show-email').textContent = useremail
             
-            if(userContactNo == 'undefined'){
-                document.getElementById('show-contactNo').textContent = 'None';
-            }
-            else{
-                document.getElementById('show-contactNo').textContent = userContactNo;
-            }
+            // Set default values in input fields
+            document.getElementById("username").textContent = username;
+            document.getElementById("account").textContent = username.charAt(0);
+            document.getElementById("passwordInput").value = userPassword;
+            document.getElementById("emailInput").value = userEmail;
+            document.getElementById("contactNoInput").value = userContactNo !== 'undefined' ? userContactNo : "";
+            document.getElementById("addressInput").value = userAddress !== 'undefined' ? userAddress : "";
 
-            if(userContactNo == 'undefined'){
-                document.getElementById('show-address').textContent = 'None';
-            }
-            else{
-                document.getElementById('show-address').textContent = useraddress;
-            }
+            const editBtn = document.getElementById("editBtn");
+            const saveBtn = document.getElementById("saveBtn");
+            const cancelBtn = document.getElementById("cancelBtn");
+            const inputs = document.querySelectorAll(".input-field");
 
-            document.getElementById("logoutBtn").addEventListener("click", () => {
+            // Enable editing
+            editBtn.addEventListener("click", () => {
+                inputs.forEach(input => input.disabled = false);
+                editBtn.style.display = "none";
+                saveBtn.style.display = "inline-block";
+                cancelBtn.style.display = "inline-block";
+                inputs.forEach(input => {
 
-            localStorage.clear();
-            window.location.href = "index.html";
+                  inputs.forEach(input => {
+                      input.style.border = "2px solid  #940385"; // Apply border to each input element
+                  });
+
+                })
             });
-            </script>
+
+            // Save changes
+           
+            saveBtn.addEventListener("click", async () => {  // Add async here
+              
+              const username = localStorage.getItem("Username");
+              const password = document.getElementById("passwordInput").value;
+              const email = document.getElementById("emailInput").value;
+              const contactNO = document.getElementById("contactNoInput").value;
+              const address = document.getElementById("addressInput").value;
+              
+              
+             
+              
+
+              const apiKey = "6796461ab7d46ae0e4052d24"; 
+              const databaseUrl = "https://useraccounts-437f.restdb.io/rest/website-users"; 
+              
+              try {
+                  const response = await fetch(databaseUrl, {
+                      method: "GET",
+                      headers: {
+                          "Content-Type": "application/json",
+                          "x-apikey": apiKey,
+                          "cache-control": "no-cache",
+                      }
+                  });
+                 
+                  if (response.ok) {
+                      const users = await response.json();
+                      const user = users.find(user => user.username == username); // Ensure correct field name
+                    
+                      console.log(username)
+                      if (user) 
+                      {
+                          // Update user data
+                          const updatedUser = {
+                            username: username,  // Ensure this is included
+                            password: password,
+                            email: email,
+                            contactNO: contactNO,
+                            address: address
+                          };
+                          
+                          const updateResponse = await fetch(`${databaseUrl}/${user._id}`, {  // Update request
+                              method: "PUT",  // Or use PATCH
+                              headers: {
+                                  "Content-Type": "application/json",
+                                  "x-apikey": apiKey,
+                                  "cache-control": "no-cache",
+                              },
+                              body: JSON.stringify(updatedUser)
+                          });
+
+                          if (updateResponse.ok) {
+
+                              localStorage.setItem("userPassword", user.password);
+                              localStorage.setItem("userEmail", user.email);
+                              localStorage.setItem("userContactNo",user.contactNO);
+                              localStorage.setItem("userAddress",user.address);
+
+                              window.alert("Account information updated!");
+                              
+                          } 
+                          else 
+                          {
+                              const errorText = await updateResponse.text();
+                              console.error("Update failed:", updateResponse.status, updateResponse.statusText, errorText);
+                              
+                              window.alert("Failed to update account. Try again.");
+                              window.location.href = "Profile.html"
+                          }
+                      } 
+                      else{
+                        console.log("User not found");
+                        window.alert("User not found. Please check the username or register.");
+                      }
+
+                      
+                  } 
+                  else 
+                  {
+                    console.log("error")
+                    window.alert("Failed to fetch user data!")
+                   
+                      
+                  }
+              } 
+              catch (error) 
+              {
+                  console.error("Error:", error);
+                  window.alert( "An error occurred. Please try again.")
+                  
+              }
+
+              // Disable inputs and switch buttons back
+              inputs.forEach(input => input.disabled = true);
+              inputs.forEach(input => {
+                input.style.border = 'none'
+              })
+              editBtn.style.display = "inline-block";
+              saveBtn.style.display = "none";
+              cancelBtn.style.display = 'none'
+          });
+
+          // Cancel button to reload the page
+          cancelBtn.addEventListener("click", () => {
+              location.reload();
+          });
+
+          // Logout function
+          document.getElementById("logoutBtn").addEventListener("click", () => {
+              localStorage.clear();
+              window.location.href = "index.html";
+          });
+
+            
+          </script>
     </body>
 </html>
