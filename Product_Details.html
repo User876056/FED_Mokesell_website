@@ -402,7 +402,7 @@
                     <div class="popup-content">
                         <span class="close">&times;</span>
                         <h2>Payment is made successfully!</h2>
-                        <p>This is a centered popup!</p>
+                        <p id="popmessage"></p>
                     </div>
                 </div>
 
@@ -533,6 +533,7 @@
                 document.querySelector('#random div').textContent = '$'+randomNum;
                 document.querySelector('#payment div').textContent ='$'+ total
                 
+                document.getElementById('popmessage').textContent = 'You have bought'+ number +  localStorage.getItem('ChosenProductName') + 'successfully';
             });
 
             
