@@ -1,30 +1,30 @@
 ## FED_S10268213K-S10266825J_Gong Yilin_Yang Ee Ming_Assg02
 
-#Successfully Added Features:
+# Successfully Added Features:
 + Login and account user details
 + A search bar that links to each product
 + A filter feature
 + Ability to buy products
 
-#Future Features:
+# Future Features:
 + Cart feature
 + Currency change feature
 + Selling feature
 
-#Technologies Used
+# Technologies Used
 +Restdb, this was used to generate all the products, from name, type, price, review etc. We called restdb to help us load them in. Inaddition, due to some error with gett ing requests, i made a duplicate one with snnapp just in case the one currently in use was at its free get limit
 First DB: https://mokesellproducts-3f4b.restdb.io/rest/products 
 Second DB: https://mokesold-2e4b.restdb.io/rest/products
 +normalize.css pretty self explanatory
 
-#Testing
+# Testing
 Testing was done using deveoper tools, while coding we made sure to check every now and then to make sure that every function was working as intended such as the db to find out if the get request was requesting too many and had to be changed and even while testing out function that werent fully implemented
 
-#Deployment
+# Deployment
 Github page: https://User876056.github.io/FED_Mokesell_Website/
 I found a tutorial online for the name and made sure the branch was set properly for deployment. The deployment shouldnt be different from the same base code we made with the website so there shouldnt be any deviations
 
-#Home page references:
+# Home page references:
 https://www.vecteezy.com/vector-art/41417220-fashion-sale-horizontal-banner-with-discount-offer-advertisement-with-colorful-sketches-of-various-clothing-items-vector-illustration
 
 https://www.vecteezy.com/vector-art/38046770-horizontal-sale-banner-template-for-vegetarian-or-organic-product
@@ -70,8 +70,8 @@ https://www.flaticon.com/free-icon/shipped_411712?term=delivery&page=1&position=
 Products:
 https://www.adobe.com/products/firefly.html?msockid=0b70b8c6d42d6e8e1552ac9bd5776f8d
 
-#AI use:
+# AI use:
 Chat gpt was used to help with some complicated API functions and to help with any errors that we couldnt solve ourselves
 
-#Misc:
+# Misc:
 Special thanks to Yilin who worked with me on this project
