@@ -1,6 +1,30 @@
-# FED_S10268213K-S10266825J_Gong Yilin_Yang Ee Ming_Assg02
+## FED_S10268213K-S10266825J_Gong Yilin_Yang Ee Ming_Assg02
 
+#Successfully Added Features:
++ Login and account user details
++ A search bar that links to each product
++ A filter feature
++ Ability to buy products
 
+#Future Features:
++ Cart feature
++ Currency change feature
++ Selling feature
+
+#Technologies Used
++Restdb, this was used to generate all the products, from name, type, price, review etc. We called restdb to help us load them in. Inaddition, due to some error with gett ing requests, i made a duplicate one with snnapp just in case the one currently in use was at its free get limit
+First DB: https://mokesellproducts-3f4b.restdb.io/rest/products 
+Second DB: https://mokesold-2e4b.restdb.io/rest/products
++normalize.css pretty self explanatory
+
+#Testing
+Testing was done using deveoper tools, while coding we made sure to check every now and then to make sure that every function was working as intended such as the db to find out if the get request was requesting too many and had to be changed and even while testing out function that werent fully implemented
+
+#Deployment
+Github page: https://User876056.github.io/FED_Mokesell_Website/
+I found a tutorial online for the name and made sure the branch was set properly for deployment. The deployment shouldnt be different from the same base code we made with the website so there shouldnt be any deviations
+
+#Home page references:
 https://www.vecteezy.com/vector-art/41417220-fashion-sale-horizontal-banner-with-discount-offer-advertisement-with-colorful-sketches-of-various-clothing-items-vector-illustration
 
 https://www.vecteezy.com/vector-art/38046770-horizontal-sale-banner-template-for-vegetarian-or-organic-product
@@ -8,10 +32,6 @@ https://www.vecteezy.com/vector-art/38046770-horizontal-sale-banner-template-for
 https://www.123rf.com/photo_124534965_advertisement-banner-for-summer-sale-horizontal-banner-with-realistic-seashells-and-starfishes-on.html
 
 https://www.vecteezy.com/free-vector/black-friday-sale-banner
-
-
-Home page references:
-
 
 
 Cars icon:
@@ -39,10 +59,19 @@ Banner:
 https://thelivenagpur.com/2024/06/04/bring-the-stadium-home-with-samsung-big-tv-days-sale-on-ultra-premium-tvs/
 
 
-Product detail page:
+#Product detail page:
 
 Guarantee icon:
 https://www.flaticon.com/free-icon/shield_306047?term=shield&page=1&position=31&origin=search&related_id=306047
 
 Delivery icon:
 https://www.flaticon.com/free-icon/shipped_411712?term=delivery&page=1&position=79&origin=search&related_id=411712
+
+Products:
+https://www.adobe.com/products/firefly.html?msockid=0b70b8c6d42d6e8e1552ac9bd5776f8d
+
+#AI use:
+Chat gpt was used to help with some complicated API functions and to help with any errors that we couldnt solve ourselves
+
+#Misc:
+Special thanks to Yilin who worked with me on this project
