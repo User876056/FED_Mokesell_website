@@ -51,8 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.addEventListener("click", function (e) {
-        if (!inputBox.contains(e.target) && !myUL.contains(e.target)) {
-            myUL.style.display = "none";
+        if (inputBox && myUL) { // Ensure both elements exist before checking
+            if (!inputBox.contains(e.target) && !myUL.contains(e.target)) {
+                myUL.style.display = "none";
+            }
         }
     });
 });
