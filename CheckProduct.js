@@ -1,6 +1,6 @@
 // Fetch data from API
 async function fetchProducts() {
-    const API_URL = 'https://tomcam.github.io/least-github-pages/'; 
+    const API_URL = 'https://mokesold-2e4b.restdb.io/rest/products'; 
     const API_KEY = '67a670f5df7c26d07d9657c0';
 
     try {
