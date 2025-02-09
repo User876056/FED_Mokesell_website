@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                         ul.style.display = "none"; // Hide dropdown after selection
 
                         // Store the selected product's name in localStorage
-                        localStorage.setItem("ChosenProduct", product.name);  // Save product's unique name
+                        localStorage.setItem("ChosenProductName", product.name);  // Save product's unique name
 
                         // Redirect to product details page
                         window.location.href = "Product_Details.html"; // Redirect
