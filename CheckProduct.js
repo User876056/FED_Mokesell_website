@@ -43,7 +43,7 @@ function renderProducts(Products) {
         `;
         card.addEventListener("click", () => {
             name = Product.name; // Store the product's name in the variable
-            localStorage.setItem("ChosenProduct",name)
+            localStorage.setItem("ChosenProductName",name)
             console.log("Selected product:", name); // Debugging output
             window.location.href = "Product_Details.html"
         });

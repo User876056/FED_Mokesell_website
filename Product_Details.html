@@ -152,6 +152,13 @@
                 cursor: pointer;
                 
             }
+            #openPopup{
+                margin-left: auto;
+                margin-top:5%;
+                width:30% ;
+                height: 10%;
+                font-size: 20px;
+            }
              /* Popup Background */
              .popup {
                 display: none; /* Hidden by default */
@@ -169,8 +176,8 @@
             .popup-content {
                 background: white;
                 padding: 20px;
-                width: 300px;
-                height: 200px;
+                width: 500px;
+                height: 400px;
                 text-align: center;
                 border-radius: 10px;
                 position: relative;
@@ -188,7 +195,18 @@
                 display: flex;
                 flex-direction: column;
                
-                margin-left: 6%;
+                margin-left: 7%;
+                width: 650px;
+            }
+            
+            .values{
+                font-size: 22px;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .diplayPrice{
+                margin-left: auto;
             }
             
         </style>
@@ -313,7 +331,7 @@
                 <div class="Guarantee">
                     <div>Shipping</div>
                     <img src="Images/Delivery.png" alt="" style="margin-right: 10px;">
-                    <p>Guaranteed to get in 8 days, with shipping fee $0.00 - $1.99</p>
+                    <p>Guaranteed to get in 8 days, with shipping fee $2.00 - $10.99</p>
                 </div>
                 
 
@@ -351,20 +369,44 @@
 
             </section>
 
-            <section id="buy-section">
+            <section id="buy-section" style="display: none;">
                 <h2 id="buy-name" >wefwe</h2>
-                <button id="openPopup">Open Popup</button>
 
-
+                <div class="values" id="SalesNo">
+                    <p></p>
+                    <div class="diplayPrice"></div>
+                </div>
+                <div class="values" id="GST">
+                    <p>GST Fee 9%</p>
+                    <div class="diplayPrice"></div>
+                </div>
+                <div class="values" id="Service">
+                    <p>Service Fee 5%</p>
+                    <div class="diplayPrice"></div>
+                </div>
+                
+                <div class="values" >
+                    <p>Discount</p>
+                    <div class="diplayPrice">None</div>
+                </div>
+                <div class="values" id="random">
+                    <p>Delivery Fee</p>
+                    <div class="diplayPrice"></div>
+                </div>
+                <div class="values" id="payment">
+                    <p>Total Payment</p>
+                    <div class="diplayPrice"></div>
+                </div>
 
                 <div id="popup" class="popup">
                     <div class="popup-content">
                         <span class="close">&times;</span>
-                        <h2>Popup Title</h2>
+                        <h2>Payment is made successfully!</h2>
                         <p>This is a centered popup!</p>
                     </div>
                 </div>
 
+                <button id="openPopup">Comfirmed Payment</button>
 
             </section>
             
@@ -415,7 +457,7 @@
             }
 
             async function getProductByName() {
-                const chosenProductName = localStorage.getItem("ChosenProduct"); // Get stored product name
+                const chosenProductName = localStorage.getItem("ChosenProductName"); // Get stored product name
 
                 if (!chosenProductName) {
                     console.error("No product name found in localStorage");
@@ -428,6 +470,8 @@
                 const selectedProduct = products.find(product => product.name === chosenProductName);
 
                 if (selectedProduct) {
+                    localStorage.setItem('ChosenProductPrice',selectedProduct.price_sg);
+                    
                     console.log("Selected Product:", selectedProduct);
                     // Do something with the selected product, e.g., display it on the page
                     
@@ -450,7 +494,7 @@
             getProductByName();
 
 
-           var number = 1;
+           var number = 5;
            document.getElementById("minus").addEventListener("click", () => {
                 if (number > 1) 
                 { // Prevent going below 1
@@ -471,10 +515,28 @@
 
             const buyBtn = document.getElementById("buynow");
             buyBtn.addEventListener("click", function() {
-               document.getElementById("informations").style.display = 'None'
-              
+                document.getElementById("informations").style.display = 'None'
+                document.getElementById('buy-section').style.display = "flex"
+                
+                const price = localStorage.getItem('ChosenProductPrice')
+                const totalprice = number*price
+                const gst = 0.09*totalprice
+                const service = 0.05*totalprice
+                const total = totalprice + gst +service +randomNum
+                document.getElementById('buy-name').textContent = localStorage.getItem('ChosenProductName')
+                document.querySelector('#SalesNo p').textContent = number + ' X ' + price;
+                document.querySelector('#SalesNo div').textContent ='$'+totalprice
+                document.querySelector('#GST div').textContent ='$'+ gst
+                document.querySelector('#Service div').textContent ='$'+ service
+                let randomNum = Math.floor(Math.random() * (11 - 2 + 1)) + 2;
+
+                document.querySelector('#random div').textContent = '$'+randomNum;
+                document.querySelector('#payment div').textContent ='$'+ total
                 
             });
+
+            
+
 
 
             const likeButton = document.getElementById("like");
