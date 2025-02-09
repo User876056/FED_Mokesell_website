@@ -38,7 +38,7 @@ function renderProducts(Products) {
             <div class="product-info">
                 <h3>${Product.name}</h3>
                 <p class="price">Price: $${Product.price_sg}</p>
-                <p class="review/s">Price: $${Product.price_sg}</p>
+                <p class="review/s">Ratings: ${Product.ratings}</p>
             </div>
         `;
         card.addEventListener("click", () => {
